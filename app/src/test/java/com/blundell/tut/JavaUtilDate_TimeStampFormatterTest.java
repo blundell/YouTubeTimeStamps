@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class TimeStampFormatterTest {
+public class JavaUtilDate_TimeStampFormatterTest {
 
     private static final int DAYS_IN_A_WEEK = 7;
     private static final int AVERAGE_DAYS_IN_A_MONTH = 30;

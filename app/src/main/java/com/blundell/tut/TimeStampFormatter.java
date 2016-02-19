@@ -3,8 +3,19 @@ package com.blundell.tut;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+import org.joda.time.Hours;
+import org.joda.time.Minutes;
+import org.joda.time.Months;
+import org.joda.time.Weeks;
+import org.joda.time.Years;
+
 class TimeStampFormatter {
 
+    /**
+     * For use with java.util.Date
+     */
     public String format(Date timestamp) {
         long millisFromNow = getMillisFromNow(timestamp);
 
@@ -33,6 +44,38 @@ class TimeStampFormatter {
             return formatMonths(monthsFromNow);
         }
         return formatYears(yearsFromNow);
+    }
+
+    /**
+     * For use with org.joda.DateTime
+     */
+    public String format(DateTime commentedAt) {
+        DateTime now = DateTime.now();
+        Minutes minutesBetween = Minutes.minutesBetween(commentedAt, now);
+        if (minutesBetween.isLessThan(Minutes.ONE)) {
+            return "just now";
+        }
+        Hours hoursBetween = Hours.hoursBetween(commentedAt, now);
+        if (hoursBetween.isLessThan(Hours.ONE)) {
+            return formatMinutes(minutesBetween.getMinutes());
+        }
+        Days daysBetween = Days.daysBetween(commentedAt, now);
+        if (daysBetween.isLessThan(Days.ONE)) {
+            return formatHours(hoursBetween.getHours());
+        }
+        Weeks weeksBetween = Weeks.weeksBetween(commentedAt, now);
+        if (weeksBetween.isLessThan(Weeks.ONE)) {
+            return formatDays(daysBetween.getDays());
+        }
+        Months monthsBetween = Months.monthsBetween(commentedAt, now);
+        if (monthsBetween.isLessThan(Months.ONE)) {
+            return formatWeeks(weeksBetween.getWeeks());
+        }
+        Years yearsBetween = Years.yearsBetween(commentedAt, now);
+        if (yearsBetween.isLessThan(Years.ONE)) {
+            return formatMonths(monthsBetween.getMonths());
+        }
+        return formatYears(yearsBetween.getYears());
     }
 
     private long getMillisFromNow(Date commentedAt) {
