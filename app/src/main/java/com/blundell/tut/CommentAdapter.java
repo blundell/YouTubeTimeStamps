@@ -14,9 +14,9 @@ class CommentAdapter extends BaseAdapter {
     private final List<Comment> comments = new ArrayList<>();
 
     private final LayoutInflater layoutInflater;
-    private final CommentTimeStampFormatter timeStampFormatter;
+    private final TimeStampFormatter timeStampFormatter;
 
-    public CommentAdapter(LayoutInflater layoutInflater, CommentTimeStampFormatter timeStampFormatter) {
+    public CommentAdapter(LayoutInflater layoutInflater, TimeStampFormatter timeStampFormatter) {
         this.layoutInflater = layoutInflater;
         this.timeStampFormatter = timeStampFormatter;
     }

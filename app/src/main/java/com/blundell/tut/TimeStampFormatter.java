@@ -3,7 +3,7 @@ package com.blundell.tut;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-class CommentTimeStampFormatter {
+class TimeStampFormatter {
 
     public String format(Date timestamp) {
         long millisFromNow = getMillisFromNow(timestamp);
