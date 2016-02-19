@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         ListView listWidget = (ListView) findViewById(R.id.main_comments);
         CommentAdapter adapter = new CommentAdapter(getLayoutInflater(), new TimeStampFormatter());
         List<Comment> comments = MockBackend.loadComments();
+        comments.addAll(MockBackend.loadIsoComments());
         adapter.updateWith(comments);
         listWidget.setAdapter(adapter);
     }
