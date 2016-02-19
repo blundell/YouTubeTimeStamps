@@ -27,7 +27,7 @@ class MockBackend {
 
     private static Date date(String string) {
         try {
-            return new SimpleDateFormat("yyyy-mm-dd HH:mm", Locale.UK).parse(string);
+            return new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.UK).parse(string);
         } catch (ParseException e) {
             throw new IllegalArgumentException(e);
         }
