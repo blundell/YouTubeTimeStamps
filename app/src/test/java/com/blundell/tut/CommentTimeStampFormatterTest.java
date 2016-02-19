@@ -164,11 +164,11 @@ public class CommentTimeStampFormatterTest {
     }
 
     private Date minusMonths(int months, Date date) {
-        return minus(date, TimeUnit.DAYS.toMillis(months * DAYS_IN_A_WEEK * AVERAGE_DAYS_IN_A_MONTH));
+        return minus(date, TimeUnit.DAYS.toMillis(months * AVERAGE_DAYS_IN_A_MONTH));
     }
 
     private Date minusYears(int years, Date date) {
-        return minus(date, TimeUnit.DAYS.toMillis(years * DAYS_IN_A_WEEK * AVERAGE_DAYS_IN_A_MONTH * DAYS_IN_YEAR));
+        return minus(date, TimeUnit.DAYS.toMillis(years * DAYS_IN_YEAR));
     }
 
     private Date minus(Date date, long minutesInMillis) {

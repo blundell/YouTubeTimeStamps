@@ -24,11 +24,11 @@ class CommentTimeStampFormatter {
         if (weeksFromNow < 1) {
             return formatDays(daysFromNow);
         }
-        long monthsFromNow = TimeUnit.MILLISECONDS.toDays(millisFromNow) / 7 / 30;
+        long monthsFromNow = TimeUnit.MILLISECONDS.toDays(millisFromNow) / 30;
         if (monthsFromNow < 1) {
             return formatWeeks(weeksFromNow);
         }
-        long yearsFromNow = TimeUnit.MILLISECONDS.toDays(millisFromNow) / 7 / 30 / 365;
+        long yearsFromNow = TimeUnit.MILLISECONDS.toDays(millisFromNow) / 365;
         if (yearsFromNow < 1) {
             return formatMonths(monthsFromNow);
         }
