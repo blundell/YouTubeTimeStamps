@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ListView listWidget = (ListView) findViewById(R.id.main_comments);
-        CommentAdapter adapter = new CommentAdapter(getLayoutInflater());
+        CommentAdapter adapter = new CommentAdapter(getLayoutInflater(), new CommentTimeStampFormatter());
         List<Comment> comments = MockBackend.loadComments();
         adapter.updateWith(comments);
         listWidget.setAdapter(adapter);

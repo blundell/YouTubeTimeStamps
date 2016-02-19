@@ -14,9 +14,11 @@ class CommentAdapter extends BaseAdapter {
     private final List<Comment> comments = new ArrayList<>();
 
     private final LayoutInflater layoutInflater;
+    private final CommentTimeStampFormatter timeStampFormatter;
 
-    public CommentAdapter(LayoutInflater layoutInflater) {
+    public CommentAdapter(LayoutInflater layoutInflater, CommentTimeStampFormatter timeStampFormatter) {
         this.layoutInflater = layoutInflater;
+        this.timeStampFormatter = timeStampFormatter;
     }
 
     public void updateWith(List<Comment> comments) {
@@ -57,7 +59,7 @@ class CommentAdapter extends BaseAdapter {
         ViewHolder viewHolder = (ViewHolder) view.getTag();
         Comment comment = getItem(position);
         viewHolder.messageWidget.setText(comment.getMessage());
-        viewHolder.timestampWidget.setText(comment.getTimestamp().toString());
+        viewHolder.timestampWidget.setText(timeStampFormatter.format(comment.getTimestamp()));
         return view;
     }
 
