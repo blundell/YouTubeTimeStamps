@@ -5,8 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 class CommentTimeStampFormatter {
 
-    public String format(Date commentedAt) {
-        long millisFromNow = getMillisFromNow(commentedAt);
+    public String format(Date timestamp) {
+        long millisFromNow = getMillisFromNow(timestamp);
 
         long minutesFromNow = TimeUnit.MILLISECONDS.toMinutes(millisFromNow);
         if (minutesFromNow < 1) {
