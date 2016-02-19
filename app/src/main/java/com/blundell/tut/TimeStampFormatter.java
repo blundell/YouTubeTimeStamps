@@ -46,6 +46,12 @@ class TimeStampFormatter {
         return formatYears(yearsFromNow);
     }
 
+    private long getMillisFromNow(Date commentedAt) {
+        long commentedAtMillis = commentedAt.getTime();
+        long nowMillis = System.currentTimeMillis();
+        return nowMillis - commentedAtMillis;
+    }
+
     /**
      * For use with org.joda.DateTime
      */
@@ -76,12 +82,6 @@ class TimeStampFormatter {
             return formatMonths(monthsBetween.getMonths());
         }
         return formatYears(yearsBetween.getYears());
-    }
-
-    private long getMillisFromNow(Date commentedAt) {
-        long commentedAtMillis = commentedAt.getTime();
-        long nowMillis = System.currentTimeMillis();
-        return nowMillis - commentedAtMillis;
     }
 
     private String formatMinutes(long minutes) {
