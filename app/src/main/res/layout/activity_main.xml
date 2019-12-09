@@ -15,7 +15,7 @@
     android:text="Hello World!" />
 
   <ListView
-    android:id="@+id/main_comments"
+    android:id="@+id/mainComments"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
 </LinearLayout>
